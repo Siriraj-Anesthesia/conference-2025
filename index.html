@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ลงทะเบียนประชุมวิสัญญีศิริราช 2568</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+  <style>
+/* ==== Layout & Background ==== */
+body {
+  font-family: 'Sarabun', sans-serif;
+  background: url('https://img2.pic.in.th/pic/12-ANNUAL-SIRIRAJ-ANESTHESIA-CONFERENCE-Booklet-210-x-297-mm-2.png') no-repeat center top;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.7; /* สำหรับภาษาไทยจะดูโปร่งกำลังดี */
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background: url('https://img5.pic.in.th/file/secure-sv1/820-x-360-px-820-x-260-px.png') no-repeat center center;
+  background-size: cover;
+  height: 350px;
+  position: relative;
+}
+
+#currentTime {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #000;
+}
+
+main {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 1000px;
+  border: 1px solid #ccc; /* ✅ เพิ่มขอบ */
+}
+
+.form-title {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  max-width: 1000px;
+  margin: 20px auto 20px auto;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==== Typography ==== */
+h1, h2, h3, label {
+  color: #333;
+}
+
+/* ==== Sections ==== */
+section {
+  margin-bottom: 40px;
+line-height: 1.6;
+}
+
+/* ==== Form Layout ==== */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+    line-height: 1.6;
+}
+
+.form-group.full {
+  flex: 1 1 100%;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+}
+
+/* ==== Input Elements ==== */
+input,
+select,
+textarea,
+button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 16px;
+}
+
+input:disabled {
+  background: #f0f0f0;
+}
+
+/* ==== Button ==== */
+button {
+  background-color: #084ee3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #062bbd;
+}
+
+.button-glow {
+  box-shadow: 0 0 8px rgba(8, 78, 227, 0.6);
+}
+
+/* ==== Option Card ==== */
+.card-option {
+  padding: 15px;
+  border: 2px solid #084ee3;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+.card-option.selectable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card-option.selectable.selected {
+  background: #dfeeff;
+  border-color: #003cb3;
+}
+
+.card-option:hover {
+  transform: scale(1.02);
+  background: #f1f7ff;
+}
+
+.card-option.selected {
+  background: #dfeeff;
+  border-color: #003cb3;
+}
+  #floatingRegister {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #084ee3;
+    text-align: center;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .button-wrapper {
+    display: inline-flex;
+    gap: 12px;
+  }
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background-color: #e0f0ff;
+  padding: 14px;
+  border-radius: 12px;
+  justify-content: flex-start;
+}
+
+.search-input-id {
+  flex: 0 0 100px;
+  max-width: 100px;
+}
+
+.search-input-name {
+  flex: 1 1 200px;
+  max-width: 240px;
+}
+
+.search-bar input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.workshop-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+.disabled-section .card-option {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ยกเว้น title ด้านซ้าย */
+.disabled-section > .form-group:first-child {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.main-btn {
+  background-color: #084ee3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-btn:hover {
+  background-color: #063dbb;
+}
+.main-btn.secondary {
+  background-color: #ccc;
+  color: #333;
+}
+.main-btn .spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: spin 1s linear infinite;
+}
+.loading-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+    main {
+    padding: 16px;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .workshop-row {
+    flex-direction: column;
+  }
+  .form-group {
+    width: 100%;
+  }
+
+  .header-content {
+    padding-bottom: 30px;
+  }
+    .workshop-row {
+    flex-direction: column;
+  }
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-id,
+  .search-input-name,
+  .search-bar button {
+    width: 100%;
+    max-width: none;
+  }
+      .button-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin: 0 auto;
+      gap: 10px;
+    }
+
+    .button-wrapper button {
+      width: 100%;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <header>
+  <div id="currentTime"></div>
+  <div class="header-content"></div>
+</header>
+
+<div class="form-title">
+  <h1>แบบฟอร์มลงทะเบียนประชุมวิชาการวิสัญญีศิริราช ประจำปี 2568</h1>
+  <p>"60th year Siriraj Anesthesia: honoring our past, shaping our future"</p>
+  <p>"60ปี วิสัญญีศิริราช เกียรติภูมิที่สรรสร้างสู่อนาคตที่ยั่งยืน"</p>
+  <p>วันที่ 13-14 พฤศจิกายน 2568 ห้องอัมรินทร์ โรงแรม S.D. Avenue ชั้น 3</p>
+</div>
+
+  
+  <main>
+<form method="POST">
+<input type="hidden" name="mainCongress" id="mainCongress">
+<input type="hidden" name="workshop" id="workshop">
+<input type="hidden" name="reunionOnly" id="reunionOnly">
+<input type="hidden" name="summaryText" id="summaryText">
+<input type="hidden" name="totalAmountHidden" id="totalAmountHidden">
+
+    <section id="registerSection">
+  <h2 style="background: #e0f0ff; padding: 10px 15px; border-left: 6px solid #084ee3; border-radius: 6px;">
+  ข้อมูลทั่วไป
+</h2>
+
+
+  <!-- แถวที่ 1: คำนำหน้า (1) | ชื่อ (2) | นามสกุล (2) -->
+  <div class="form-row">
+    <div class="form-group" style="flex: 1">
+      <label for="prefix">คำนำหน้า <span style="color:red">*</span></label>
+      <select id="prefix" name="prefix" required>
+        <option value="">-- เลือก --</option>
+        <option value="นพ.">นพ.</option>
+        <option value="พญ.">พญ.</option>
+        <option value="นาย">นาย</option>
+        <option value="นาง">นาง</option>
+        <option value="นางสาว">นางสาว</option>
+        <option value="อื่นๆ">อื่นๆ</option>
+      </select>
+    </div>
+    <div class="form-group" style="flex: 2">
+      <label for="firstName">ชื่อ <span style="color:red">*</span></label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div class="form-group" style="flex: 2">
+      <label for="lastName">นามสกุล <span style="color:red">*</span></label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+  </div>
+
+  <!-- แถวที่ 2: วิชาชีพ (1) | เลขใบประกอบ (2) | สาขา (2) -->
+  <div class="form-row">
+    <div class="form-group" style="flex: 1">
+      <label for="profession">วิชาชีพ <span style="color:red">*</span></label>
+      <select id="profession" name="profession" required>
+        <option value="">-- เลือก --</option>
+        <option value="แพทย์">แพทย์</option>
+        <option value="พยาบาล">พยาบาล</option>
+        <option value="อื่นๆ">อื่นๆ</option>
+      </select>
+    </div>
+    <div class="form-group" style="flex: 2">
+      <label for="license">เลขใบประกอบวิชาชีพ</label>
+      <input type="text" id="license" name="license">
+    </div>
+    <div class="form-group" style="flex: 2">
+      <label for="specialty">สาขา (Specialty)</label>
+      <input type="text" id="specialty" name="specialty" placeholder="เช่น pain/เวชศาสตร์ฉุกเฉิน/นักศึกษาแพทย์" >
+    </div>
+  </div>
+</section>
+
+<section id="contactSection">
+  <h2 style="background: #e0f0ff; padding: 10px 15px; border-left: 6px solid #084ee3; border-radius: 6px;">
+    ช่องทางการติดต่อ
+  </h2>
+
+  <!-- แถวที่ 1 -->
+<div class="form-row">
+  <!-- สถานที่ทำงาน: 1 ส่วน -->
+  <div class="form-group" style="flex: 1;">
+    <label for="workplace">สถานที่ทำงาน <span style="color:red">*</span></label>
+    <input type="text" id="workplace" name="workplace" placeholder="สถาบัน/โรงพยาบาล" required>
+  </div>
+
+  <!-- ที่อยู่: 2 ส่วน -->
+  <div class="form-group" style="flex: 2;">
+    <label for="address">ที่อยู่ปัจจุบัน</label>
+    <input type="text" id="address" name="address" placeholder="เลขที่ ถนน แขวง เขต จังหวัด รหัสไปรษณีย์">
+  </div>
+</div>
+
+<div class="form-row">
+  <!-- เบอร์โทรศัพท์ -->
+  <div class="form-group" style="display: flex; flex-direction: column; justify-content: space-between;">
+    <label for="phone">เบอร์โทรศัพท์ <span style="color:red">*</span></label>
+    <input type="tel" id="phone" name="phone" placeholder="08XXXXXXXX" required>
+  </div>
+
+  <!-- Line ID -->
+  <div class="form-group" style="display: flex; flex-direction: column; justify-content: space-between;">
+    <label for="lineId">Line ID</label>
+    <input type="text" id="lineId" name="lineId" placeholder="@anessiriraj">
+    <label style="font-size: 0.85em;">
+      <input type="checkbox" id="sameAsPhone"> เหมือนเบอร์โทรศัพท์
+    </label>
+  </div>
+
+  <!-- Email -->
+  <div class="form-group" style="display: flex; flex-direction: column; justify-content: space-between;">
+    <label for="email">Email <span style="color:red">*</span></label>
+    <input type="email" id="email" name="email" placeholder="sirirajanes@gmail.com" required>
+  </div>
+</div>
+</section>
+<section id="activitySection">
+  <h2 style="background: #e0f0ff; padding: 10px 15px; border-left: 6px solid #084ee3; border-radius: 6px;">
+    รายการลงทะเบียน
+  </h2>
+
+<!-- Main Congress -->
+<div class="form-row">
+  <div class="form-group" style="flex: 1;">
+    <strong style="font-size: 1.3em; color: #062bbd;">Main Congress</strong>
+  </div>
+  <div class="form-group" style="flex: 2; margin-left: -150px;">
+    <div class="card-option selectable" onclick="selectCard(this, 'mainCongress')" data-name="mainCongress">
+      <div><strong>เข้าร่วม Main Congress</strong></div>
+      <div style="font-size: 0.9em; margin-top: 4px;">
+        วันที่ 13–14 พฤศจิกายน 2568<br>
+        ภายในวันที่ 15 ต.ค. 2568: 3,500 บาท<br>
+        หลังวันที่ 15 ต.ค. 2568: 4,000 บาท
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Workshop -->
+<div class="form-row disabled-section" id="workshopRow">
+  <div class="form-group" style="flex: 1;">
+    <strong style="font-size: 1.3em; color: #062bbd;">Workshop</strong>
+    <p style="margin: 4px 0 0; font-size: 0.85em;">เลือกได้ 1 รายการเท่านั้น</p>
+  </div>
+  <div class="form-group" style="flex: 2; margin-left: -150px;">
+    <div class="workshop-row">
+      <div class="card-option selectable" onclick="selectCard(this, 'workshop')" data-name="workshop" data-value="1">
+        <div><strong>Workshop 1:</strong></div>
+        <div>EEG for Anesthesiologist</div>
+        <div style="font-size: 0.9em; margin-top: 4px;">
+          ภายในวันที่ 15 ต.ค. 2568: 500 บาท<br>หลังวันที่ 15 ต.ค. 2568: 600 บาท
+        </div>
+      </div>
+      <div class="card-option selectable" onclick="selectCard(this, 'workshop')" data-name="workshop" data-value="2">
+        <div><strong>Workshop 2:</strong></div>
+        <div>Perioperative Hypotension (English)</div>
+        <div style="font-size: 0.9em; margin-top: 4px;">
+          ภายในวันที่ 15 ต.ค. 2568: 500 บาท<br>หลังวันที่ 15 ต.ค. 2568: 600 บาท
+        </div>
+      </div>
+      <div class="card-option selectable" onclick="selectCard(this, 'workshop')" data-name="workshop" data-value="3">
+        <div><strong>Workshop 3:</strong></div>
+        <div>Personal Color</div>
+        <div style="font-size: 0.9em; margin-top: 4px;">
+          ภายในวันที่ 15 ต.ค. 2568: 599 บาท<br>หลังวันที่ 15 ต.ค. 2568: 699 บาท
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- คืนสู่เหย้า -->
+<div class="form-row">
+  <div class="form-group" style="flex: 1;">
+     <strong style="font-size: 1.3em; color: #062bbd;">ร่วมงานคืนสู่เหย้าเท่านั้น</strong>
+    <p style="margin: 4px 0 0; font-size: 0.85em;">โดยไม่ร่วมประชุม Main congress</p>
+  </div>
+  <div class="form-group" style="flex: 2; margin-left: -150px;">
+    <div class="card-option selectable" onclick="selectCard(this, 'reunionOnly')" data-name="reunionOnly">
+      <div><strong>เข้าร่วมกิจกรรมคืนสู่เหย้าอย่างเดียว</strong></div>
+      <div style="font-size: 0.9em; margin-top: 4px;">
+        วันที่ 14 พฤศจิกายน 2568 เวลา 18:00–21:00 น.<br>
+        ค่าลงทะเบียน 1,000 บาท
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Section: ข้อมูลเพิ่มเติมเมื่อเลือก Main Congress -->
+<div id="mainExtraInfo" style="display: none;">
+  <h2 style="background: #e0f0ff; padding: 10px 15px; border-left: 6px solid #084ee3; border-radius: 6px;">
+    ข้อมูลเพิ่มเติม
+  </h2>
+
+  <div class="form-row">
+    <div class="form-group" style="flex: 1;">
+<label for="shirtSize">กรุณาเลือกขนาดเสื้อยืด (Unisex)<span style="font-size: 0.9em; font-style: italic;"> ฟรีสำหรับผู้ลงทะเบียน Main congress</span>
+</label>
+
+      <select id="shirtSize" name="shirtSize">
+        <option value="">-- เลือก --</option>
+        <option value="S">S: อก 33</option>
+        <option value="M">M: อก 36</option>
+        <option value="L">L: อก 40</option>
+        <option value="XL">XL: อก 44</option>
+        <option value="2XL">2XL: อก 48</option>
+        <option value="3XL">3XL: อก 52</option>
+        <option value="ไม่รับเสื้อ">ไม่รับเสื้อ</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="flex: 1;">
+      <label for="reunionConfirm">ท่านจะเข้าร่วมงานคืนสู่เหย้าหรือไม่? <span style="color: red;">*</span></label>
+      <select id="reunionConfirm" name="reunionConfirm">
+        <option value="">-- เลือก --</option>
+        <option value="ร่วมงาน">ร่วมงาน</option>
+        <option value="ไม่ร่วมงาน">ไม่ร่วมงาน</option>
+        <option value="ไม่แน่ใจ">ไม่แน่ใจ</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div id="trainingYearGroup" style="display: none;">
+  <div class="form-row">
+    <div class="form-group" style="flex: 1;">
+      <label for="trainingYear">ปีที่เข้าฝึกอบรมวิสัญญี ที่รพ.ศิริราช</label>
+      <input type="text" id="trainingYear" name="trainingYear" placeholder="เช่น 2552 หรือ 2009">
+    </div>
+    <div class="form-group full" style="flex: 1;">
+      <label for="note">หมายเหตุเพิ่มเติม (ถ้ามี)</label>
+      <input type="text" id="note" name="note" placeholder="เช่น อาหารอิสลาม/มังสวิรัตน์">
+    </div>
+  </div>
+  <div style="font-size: 0.85em; color: #555; margin-top: -10px;">
+    * หากท่านไม่ได้แจ้ง ท่านยังสามารถเข้าร่วมงานได้ตามปกติ แต่การแจ้งช่วยจะให้เราจัดเตรียมโต๊ะได้เหมาะสมมากขึ้น (สามารถเปลี่ยนแปลงข้อมูลได้จนถึงวันที่ 15 ต.ค. 2568)
+  </div>
+  </div>
+
+<!-- Section: รวมราคาที่ต้องชำระ -->
+<section id="summarySection" style="display:none; margin-top: 20px;">
+  <h3 style="color:#084ee3;">รวมยอดเงินที่ต้องชำระ: (บาท)</h3>
+  <div id="totalAmount" style="background:#d6ecff;padding:10px 15px;border-radius:8px;font-size:22px;font-weight:bold;">0</div>
+
+  <div style="background:#f9f9f9;border-radius:12px;padding:20px;margin-top:20px;border:1px solid #ccc;">
+    <h3 style="margin-top:0;"><strong>สรุปรายการลงทะเบียน:</strong></h3>
+    <ul id="summaryList" style="line-height:1.6;font-size:16px;"></ul>
+  </div>
+</section>
+<section id="paymentSection" style="margin-top:30px;">
+  <h3 style="color:#084ee3;">การชำระค่าลงทะเบียน</h3>
+  <p>
+    กรุณาโอนเงินเข้าบัญชีออมทรัพย์<br>
+    <strong>ธนาคารไทยพาณิชย์</strong> สาขาศิริราช<br>
+    <strong>เลขที่บัญชี:</strong> <span id="accountNumber">016-472617-4</span><br>
+    <strong>ชื่อบัญชี:</strong> “นางสาวสุกัญญา เดชอาคม และ/หรือ นางสาวรานี รัชตามุขยนันต์ และ/หรือ นางสาวชุติมณฑน์ เทียนขาว”
+    <br>
+    <button id="copyBtn" type="button" onclick="copyAccount()" style="margin-top:10px;">คัดลอกเลขบัญชี</button>
+  </p>
+
+  <div style="margin-top:20px;">
+<label for="slipUpload">กรุณาส่งหลักฐานการชำระเงิน มาที่ Line official : วิสัญญีศิริราช</label>
+    <p style="margin: 5px 0;">
+      <a href="https://lin.ee/DiQttgZ" target="_blank" style="text-decoration: none; color: #0bb94d;">
+        ▶ Line วิสัญญี ศิริราช
+      </a>
+    </p>
+</section>
+<section id="receiptSection" style="margin-top:10px;">
+  <h3 style="color:#084ee3;">รายละเอียดสำหรับออกใบเสร็จ</h3>
+
+  <!-- ชื่อในใบเสร็จ -->
+    <div class="form-row">
+        <div class="form-group">
+    <label for="receiptName">
+      ชื่อในใบเสร็จ 
+      <input type="checkbox" id="copyNameCheckbox" style="margin-left:10px;">
+      <span style="font-size:0.9em;">ผู้เข้าร่วมประชุม</span>
+    </label>
+    <input type="text" id="receiptName" name="receiptName" placeholder="เช่น นพ.สมชาย ใจดี">
+  </div>
+
+  <!-- เลขประจำตัวผู้เสียภาษี -->
+  <div class="form-group">
+    <label for="taxId">เลขประจำตัวผู้เสียภาษี</label>
+    <input type="text" id="taxId" name="taxId" placeholder="13 หลัก">
+  </div>
+</div>
+  <!-- ที่อยู่ในใบเสร็จ -->
+  <div class="form-group">
+    <label for="receiptAddress">
+      ที่อยู่ในใบเสร็จ 
+      <input type="checkbox" id="copyAddressCheckbox" style="margin-left:10px;">
+      <span style="font-size:0.9em;">เหมือนที่อยู่ปัจจุบัน</span>
+    </label>
+    <textarea id="receiptAddress" name="receiptAddress" rows="3" placeholder="กรอกที่อยู่สำหรับออกใบเสร็จ"></textarea>
+  </div>
+</section>
+<section id="conditionsSection" style="background: #f9f9f9; border: 1px solid #ccc; border-radius: 12px; padding: 20px; margin-top: 30px; line-height: 1.7; font-size: 16px; color: #333;">
+  <h3 style="margin-top: 0; color: #084ee3;">เงื่อนไขการลงทะเบียน</h3>
+  <p>
+    หลังลงทะเบียน ท่านจะได้รับอีเมลแจ้งข้อมูลการลงทะเบียนและเลขลงทะเบียน (ANES-XXXX)
+    <span style="font-weight: bold;">(ไม่ใช่อีเมลยืนยันการลงทะเบียน)</span>
+  </p>
+<p>
+  โดยท่านสามารถส่งหลักฐานการชำระเงินเพิ่มเติม และแก้ไขข้อมูลดังต่อไปนี้ได้ทาง
+  ▶ <a href="https://line.me/R/ti/p/@sirirajanesthesia" target="_blank">Line วิสัญญี ศิริราช</a>
+  </p>
+  <ul style="margin-top: 5px; margin-bottom: 15px;">
+    <li>ขนาดเสื้อ (เฉพาะผู้ลงทะเบียน main congress)</li>
+    <li>ยืนยันการเข้าร่วมงานคืนสู่เหย้า (เฉพาะผู้ลงทะเบียน main congress)</li>
+    <li>ปีที่เข้าฝึกอบรมที่โรงพยาบาลศิริราช</li>
+    <li>หมายเหตุ</li>
+    <li>ชื่อ เลขประจำตัวผู้เสียภาษี และที่อยู่สำหรับออกใบเสร็จ</li>
+  </ul>
+  <p>
+    สามารถแก้ไขข้อมูลข้างต้นได้ถึงวันที่ <strong>15 ตุลาคม 2568</strong> ข้อมูลการลงทะเบียนอื่น ๆ ไม่สามารถแก้ไขได้
+  </p>
+  <p>
+    การลงทะเบียนจะถือว่าสมบูรณ์เมื่อท่านได้รับอีเมลยืนยันการลงทะเบียน
+  </p>
+  <p style="color: red; font-weight: bold;">
+    ขอสงวนสิทธิ์ไม่คืนเงินค่าลงทะเบียนในทุกกรณี
+  </p>
+  <p>
+    หากท่านยังไม่ได้รับอีเมลยืนยันการลงทะเบียนภายใน 5 วันหลังจากส่งหลักฐานการโอนเงิน กรุณาติดต่อกลับที่
+    <a href="mailto:sirirajanes@gmail.com">sirirajanes@gmail.com</a> หรือ <a href="https://lin.ee/DiQttgZ" target="_blank">LINE: วิสัญญี ศิริราช</a>
+  </p>
+</section>
+<div style="margin: 20px 0;">
+  <label style="font-size: 0.95em; color: #dc1414;">
+    <input type="checkbox" id="confirmChecked" required>
+    ข้าพเจ้าได้ตรวจสอบข้อมูลทั้งหมดแล้ว และยืนยันความถูกต้อง
+  </label>
+</div>
+<!-- ปุ่มล่าง -->
+<div id="registerButtonBottom" style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px;">
+  <button type="reset" class="main-btn secondary">Reset</button>
+  <button type="submit" class="main-btn submit-btn">ลงทะเบียน</button>
+</div>
+
+<!-- ปุ่มลอย -->
+<div id="floatingRegister">
+  <div class="button-wrapper">
+    <button type="reset" class="main-btn secondary">Reset</button>
+    <button type="submit" class="main-btn submit-btn">ลงทะเบียน</button>
+  </div>
+</div>
+
+
+<footer style="background: #f5f5f5; padding: 20px; font-size: 14px; color: #333; text-align: left; margin-top: 40px;">
+  <p><strong>สอบถามข้อมูลเพิ่มเติมได้ที่</strong><br>
+    คุณรานี / คุณชุติมณฑน์<br>
+    ภาควิชาวิสัญญีวิทยา คณะแพทยศาสตร์ศิริราชพยาบาล<br>
+    2 ถ.วังหลัง แขวงศิริราช เขตบางกอกน้อย กรุงเทพฯ 10700<br>
+    โทร: 02-419-9297 ต่อ 201 / 101<br>
+    อีเมล: <a href="mailto:sirirajanes@gmail.com">sirirajanes@gmail.com</a>
+  </p>
+
+  <div style="margin-top: 10px;">
+    <p style="margin: 5px 0;">
+      <a href="https://www.facebook.com/share/1AaHQZUwLW/?mibextid=wwXIf" target="_blank" style="text-decoration: none; color: #084ee3;">
+        ▶ Facebook งานประชุมวิชาการ วิสัญญีศิริราช
+      </a>
+    </p>
+    <p style="margin: 5px 0;">
+      <a href="https://lin.ee/DiQttgZ" target="_blank" style="text-decoration: none; color: #0bb94d;">
+        ▶ Line วิสัญญี ศิริราช
+      </a>
+    </p>
+  </div>
+</footer>
+
+
+<input type="hidden" id="status" name="Status" value="กำลังตรวจสอบ">
+
+</form>
+</main>
+
+<!-- ส่วน script ด้านล่างเฉพาะที่แก้ไขเรียบร้อยแล้ว -->
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycby_tciTzssE5jJNLnsonGJeqIcwj1rgAep_Le-bIrijy0tLCsQRiec2hwZRuUlC9derxw/exec';
+
+// Show real-time clock
+function updateTime() {
+  const now = new Date();
+  const pad = num => String(num).padStart(2, '0');
+  const timeString = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${pad(now.getFullYear())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())} น.`;
+  document.getElementById('currentTime').innerText = timeString;
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+// 📋 Copy bank account
+function copyAccountNumber() {
+  const accountText = document.getElementById("accountNumber").innerText.trim();
+  navigator.clipboard.writeText(accountText).then(() => {
+    alert("คัดลอกเลขที่บัญชีเรียบร้อยแล้ว");
+  }).catch(err => {
+    alert("ไม่สามารถคัดลอกได้: " + err);
+  });
+}
+
+// Auto profession
+const prefix = document.getElementById('prefix');
+const profession = document.getElementById('profession');
+prefix.addEventListener('change', function () {
+  profession.value = (this.value === 'นพ.' || this.value === 'พญ.') ? 'แพทย์' : '';
+});
+
+// Line ID = Phone
+const phoneInput = document.getElementById('phone');
+const lineInput = document.getElementById('lineId');
+const sameAsPhone = document.getElementById('sameAsPhone');
+sameAsPhone.addEventListener('change', function () {
+  lineInput.value = this.checked ? phoneInput.value : '';
+});
+phoneInput.addEventListener('input', function () {
+  if (sameAsPhone.checked) lineInput.value = this.value;
+});
+
+// Copy receipt fields
+["copyNameCheckbox", "copyAddressCheckbox"].forEach(id => {
+  document.getElementById(id)?.addEventListener("change", function () {
+    if (id === "copyNameCheckbox") {
+      document.getElementById("receiptName").value = `${prefix.value}${document.getElementById("firstName").value} ${document.getElementById("lastName").value}`.trim();
+    } else {
+      document.getElementById("receiptAddress").value = document.getElementById("address").value;
+    }
+  });
+});
+
+// Floating button visibility
+window.addEventListener("scroll", function () {
+  const floatBtn = document.getElementById("floatingRegister");
+  const bottomRect = document.getElementById("registerButtonBottom").getBoundingClientRect();
+  floatBtn.style.display = (bottomRect.top < window.innerHeight - 80) ? "none" : "block";
+});
+
+// Summary update
+function updateSummary() {
+  const summaryList = document.getElementById("summaryList");
+  const totalAmount = document.getElementById("totalAmount");
+  const summarySection = document.getElementById("summarySection");
+  let total = 0;
+  let hasAny = false;
+  summaryList.innerHTML = "";
+  const isEarly = new Date() <= new Date("2025-10-15");
+  const main = document.querySelector('.card-option[data-name="mainCongress"].selected');
+  const reunion = document.querySelector('.card-option[data-name="reunionOnly"].selected');
+  if (main) {
+    const price = isEarly ? 3500 : 4000;
+    total += price;
+    hasAny = true;
+    summaryList.innerHTML += `<li>Main Congress วันที่ 13–14 พ.ย. 2568 (${price} บาท)</li>`;
+  }
+  const workshop = document.querySelector('.card-option[data-name="workshop"].selected');
+  if (workshop) {
+    const val = workshop.getAttribute("data-value");
+    const price = val === "3" ? (isEarly ? 599 : 699) : (isEarly ? 500 : 600);
+    total += price;
+    hasAny = true;
+    summaryList.innerHTML += `<li>${workshop.innerText.trim().split("\n")[0]} (${price} บาท)</li>`;
+  }
+  if (reunion) {
+    total += 1000;
+    hasAny = true;
+    summaryList.innerHTML += `<li>เข้าร่วมงานคืนสู่เหย้า (1000 บาท)</li>`;
+  }
+  const shirt = document.getElementById("shirtSize").value;
+  if ((main || reunion) && shirt) summaryList.innerHTML += `<li>ขนาดเสื้อยืด: ${shirt}</li>`;
+  const rc = document.getElementById("reunionConfirm").value;
+  if ((main || reunion) && rc) summaryList.innerHTML += `<li>งานคืนสู่เหย้า: ${rc}</li>`;
+  const year = document.getElementById("trainingYear").value;
+  if ((main || reunion) && year) summaryList.innerHTML += `<li>ปีที่ฝึกอบรม: ${year}</li>`;
+  const note = document.getElementById("note").value;
+  if ((main || reunion) && note) summaryList.innerHTML += `<li>หมายเหตุ: ${note}</li>`;
+  totalAmount.innerText = total;
+  summarySection.style.display = hasAny ? "block" : "none";
+}
+["shirtSize", "reunionConfirm", "trainingYear", "note"].forEach(id => {
+  document.getElementById(id)?.addEventListener('input', updateSummary);
+});
+updateSummary();
+
+function updateHiddenFields() {
+  document.getElementById("mainCongress").value =
+    document.querySelector('.card-option[data-name="mainCongress"].selected') ? "Yes" : "";
+
+  const workshop = document.querySelector('.card-option[data-name="workshop"].selected');
+  document.getElementById("workshop").value = workshop
+    ? workshop.innerText.trim().replace(/\s+/g, ' ')
+    : "";
+
+  document.getElementById("reunionOnly").value =
+    document.querySelector('.card-option[data-name="reunionOnly"].selected') ? "Yes" : "";
+
+  const summaryItems = Array.from(document.querySelectorAll('#summaryList li')).map(li => li.innerText).join('\n');
+  document.getElementById("summaryText").value = summaryItems;
+
+  document.getElementById("totalAmountHidden").value = document.getElementById("totalAmount").innerText;
+}
+
+function selectCard(element, groupName) {
+  const isSelected = element.classList.contains('selected');
+  if (groupName !== 'workshop') {
+    document.querySelectorAll(`.card-option.selectable[data-name="${groupName}"]`).forEach(el => el.classList.remove('selected'));
+  }
+  if (groupName === 'workshop') {
+    document.querySelectorAll('.card-option.selectable[data-name="workshop"]').forEach(el => el.classList.remove('selected'));
+    if (!isSelected) element.classList.add('selected');
+  } else {
+    element.classList.toggle('selected', !isSelected);
+  }
+  const isMainSelected = document.querySelector('.card-option[data-name="mainCongress"].selected');
+  const isReunionOnlySelected = document.querySelector('.card-option[data-name="reunionOnly"].selected');
+  document.getElementById('mainExtraInfo').style.display = isMainSelected ? 'block' : 'none';
+  document.getElementById('trainingYearGroup').style.display = (isMainSelected || isReunionOnlySelected) ? 'block' : 'none';
+  const reunionOnlyCard = document.querySelector('.card-option[data-name="reunionOnly"]');
+  if (isMainSelected) {
+    reunionOnlyCard.classList.remove('selected');
+    reunionOnlyCard.classList.add('disabled');
+    reunionOnlyCard.style.pointerEvents = 'none';
+    reunionOnlyCard.style.opacity = '0.5';
+    document.getElementById('workshopRow').classList.remove('disabled-section');
+  } else {
+    reunionOnlyCard.classList.remove('disabled');
+    reunionOnlyCard.style.pointerEvents = 'auto';
+    reunionOnlyCard.style.opacity = '1';
+    document.getElementById('workshopRow').classList.add('disabled-section');
+    document.querySelectorAll('.card-option.selectable[data-name="workshop"]').forEach(el => el.classList.remove('selected'));
+  }
+  if (groupName === "reunionOnly") {
+    document.querySelectorAll('.card-option[data-name="mainCongress"]').forEach(el => el.classList.remove('selected'));
+    document.getElementById("shirtSize").value = "";
+    document.getElementById("reunionConfirm").value = "";
+  }
+  updateSummary();
+}
+
+// Submit form with spinner
+const form = document.querySelector('form');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const submitButtons = document.querySelectorAll('.submit-btn');
+  submitButtons.forEach(btn => {
+    btn.disabled = true;
+    btn.innerHTML = `<span class="loading-spinner"></span>กำลังลงทะเบียน...`;
+  });
+
+  updateHiddenFields(); // ✅ ensure hidden fields sync
+
+  const data = new FormData(form);
+  fetch(scriptURL, {
+    method: 'POST',
+    body: data
+  })
+    .then(res => res.json())
+    .then(result => {
+      if (result.result === "success") {
+        alert("ลงทะเบียนสำเร็จ! หมายเลขของคุณคือ " + result.id);
+        location.reload();
+      } else {
+        alert("เกิดข้อผิดพลาด: " + result.message);
+        resetSubmitButton();
+      }
+    })
+    .catch(err => {
+      alert("เกิดข้อผิดพลาด: " + err.message);
+      resetSubmitButton();
+    });
+
+  function resetSubmitButton() {
+    submitButtons.forEach(btn => {
+      btn.disabled = false;
+      btn.innerHTML = `ลงทะเบียน`;
+    });
+  }
+});
+
+// ✅ ฟังก์ชันคัดลอกบัญชีธนาคาร (ย้ายออกมาอยู่นอก submit event)
+function copyAccount() {
+  const btn = document.getElementById("copyBtn");
+  navigator.clipboard.writeText('0164726174').then(() => {
+    const originalText = btn.innerText;
+    btn.innerText = "คัดลอกแล้ว ✓";
+    btn.style.backgroundColor = "#bde3ff";
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.backgroundColor = "#c4e5fb";
+    }, 2000);
+  }).catch(() => {
+    alert("ไม่สามารถคัดลอกได้");
+  });
+}
+
+</script>
+</body>
+</html>

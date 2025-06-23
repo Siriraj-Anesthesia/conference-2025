@@ -62,6 +62,21 @@ main {
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+.form-row-1-3 {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.col-1 {
+  flex: 1;
+  min-width: 120px;
+}
+
+.col-3 {
+  flex: 3;
+}
 
 /* ==== Typography ==== */
 h1, h2, h3, label {
@@ -295,7 +310,13 @@ button:hover {
   .form-group {
     width: 100%;
   }
-
+.form-row-1-3 {
+    flex-direction: column;
+  }
+  .col-1,
+  .col-3 {
+    width: 100%;
+  }
   .header-content {
     padding-bottom: 30px;
   }
@@ -451,11 +472,11 @@ button:hover {
   </h2>
 
 <!-- Main Congress -->
-<div class="form-row">
-  <div class="form-group" style="flex: 1;">
+<div class="form-row-1-3">
+ <div class="col-1">
     <strong style="font-size: 1.3em; color: #062bbd;">Main Congress</strong>
   </div>
-  <div class="form-group" style="flex: 2; margin-left: -150px;">
+  <div  class="col-3">
     <div class="card-option selectable" onclick="selectCard(this, 'mainCongress')" data-name="mainCongress">
       <div><strong>เข้าร่วม Main Congress</strong></div>
       <div style="font-size: 0.9em; margin-top: 4px;">
@@ -468,12 +489,12 @@ button:hover {
 </div>
 
 <!-- Workshop -->
-<div class="form-row disabled-section" id="workshopRow">
-  <div class="form-group" style="flex: 1;">
+<div class="form-row-1-3 disabled-section" id="workshopRow">
+  <div class="col-1">
     <strong style="font-size: 1.3em; color: #062bbd;">Workshop</strong>
     <p style="margin: 4px 0 0; font-size: 0.85em;">เลือกได้ 1 รายการเท่านั้น</p>
   </div>
-  <div class="form-group" style="flex: 2; margin-left: -150px;">
+  <div class="col-3">
     <div class="workshop-row">
       <div class="card-option selectable" onclick="selectCard(this, 'workshop')" data-name="workshop" data-value="1">
         <div><strong>Workshop 1:</strong></div>
@@ -501,12 +522,13 @@ button:hover {
 </div>
 
 <!-- คืนสู่เหย้า -->
-<div class="form-row">
-  <div class="form-group" style="flex: 1;">
+
+<div class="form-row-1-3">
+  <div class="col-1">
      <strong style="font-size: 1.3em; color: #062bbd;">ร่วมงานคืนสู่เหย้าเท่านั้น</strong>
     <p style="margin: 4px 0 0; font-size: 0.85em;">โดยไม่ร่วมประชุม Main congress</p>
   </div>
-  <div class="form-group" style="flex: 2; margin-left: -150px;">
+    <div class="col-3">
     <div class="card-option selectable" onclick="selectCard(this, 'reunionOnly')" data-name="reunionOnly">
       <div><strong>เข้าร่วมกิจกรรมคืนสู่เหย้าอย่างเดียว</strong></div>
       <div style="font-size: 0.9em; margin-top: 4px;">
@@ -720,15 +742,6 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// 📋 Copy bank account
-function copyAccountNumber() {
-  const accountText = document.getElementById("accountNumber").innerText.trim();
-  navigator.clipboard.writeText(accountText).then(() => {
-    alert("คัดลอกเลขที่บัญชีเรียบร้อยแล้ว");
-  }).catch(err => {
-    alert("ไม่สามารถคัดลอกได้: " + err);
-  });
-}
 
 // Auto profession
 const prefix = document.getElementById('prefix');

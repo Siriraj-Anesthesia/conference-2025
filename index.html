@@ -598,15 +598,26 @@ button:hover {
     <ul id="summaryList" style="line-height:1.6;font-size:16px;"></ul>
   </div>
 </section>
-<section id="paymentSection" style="margin-top:30px;">
-  <h3 style="color:#084ee3;">การชำระค่าลงทะเบียน</h3>
+
+<section id="paymentSection" style="margin-top: 30px;">
+  <h3 style="color: #084ee3;">การชำระค่าลงทะเบียน</h3>
   <p>
-    กรุณาโอนเงินเข้าบัญชีออมทรัพย์<br>
-    <strong>ธนาคารไทยพาณิชย์</strong> สาขาศิริราช<br>
-    <strong>เลขที่บัญชี:</strong> <span id="accountNumber">016-472617-4</span><br>
-    <strong>ชื่อบัญชี:</strong> “นางสาวสุกัญญา เดชอาคม และ/หรือ นางสาวรานี รัชตามุขยนันต์ และ/หรือ นางสาวชุติมณฑน์ เทียนขาว”
-    <br>
-    <button id="copyBtn" type="button" onclick="copyAccount()" style="margin-top:10px;">คัดลอกเลขบัญชี</button>
+    กรุณาโอนเงินเข้าบัญชีออมทรัพย์ 
+    <span style="color: #655b26;">ธนาคารไทยพาณิชย์</span> สาขาศิริราช
+    <span style="color: #655b26;">เลขที่บัญชี: 016-472617-4</span>
+    <button type="button" id="copyBtn" onclick="copyAccount()" 
+      style="background-color: #c4e5fb; color: #00395d; font-size: 14px; padding: 6px 14px; margin-left: 10px; border: none; border-radius: 12px; cursor: pointer; font-family: 'Sarabun', sans-serif;"
+      onmouseover="this.style.backgroundColor='#add6ef'" 
+      onmouseout="this.style.backgroundColor='#c4e5fb'">
+      คัดลอกเลขบัญชี
+    </button>
+  </p>
+
+  <p>
+    <strong style="color: #00395d;">ชื่อบัญชี:</strong>
+    <span style="font-size: 15px; color: #000;">
+      “นางสาวสุกัญญา เดชอาคม และ/หรือ นางสาวรานี รัชตามุขยนันต์ และ/หรือ นางสาวชุติมณฑน์ เทียนขาว”
+    </span>
   </p>
 
   <div style="margin-top:20px;">
@@ -615,7 +626,7 @@ button:hover {
       <a href="https://lin.ee/DiQttgZ" target="_blank" style="text-decoration: none; color: #0bb94d;">
         ▶ Line วิสัญญี ศิริราช
       </a>
-    </p>
+    </p></div>
 </section>
 <section id="receiptSection" style="margin-top:10px;">
   <h3 style="color:#084ee3;">รายละเอียดสำหรับออกใบเสร็จ</h3>

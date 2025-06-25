@@ -375,6 +375,7 @@ button:hover {
 <input type="hidden" name="summaryText" id="summaryText">
 <input type="hidden" name="totalAmountHidden" id="totalAmountHidden">
 
+
     <section id="registerSection">
   <h2 style="background: #e0f0ff; padding: 10px 15px; border-left: 6px solid #084ee3; border-radius: 6px;">
   ข้อมูลทั่วไป
@@ -745,7 +746,7 @@ button:hover {
 
 <!-- ส่วน script ด้านล่างเฉพาะที่แก้ไขเรียบร้อยแล้ว -->
 <script>
-const scriptURL = 'https://script.google.com/macros/s/AKfycby_tciTzssE5jJNLnsonGJeqIcwj1rgAep_Le-bIrijy0tLCsQRiec2hwZRuUlC9derxw/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyT8C3rVis9KJjOgnEYcXYUQx4I49pGuW8UnfpIVBLGBC0K3h_yR0AqU2h34TYITWN4Yw/exec';
 
 // Show real-time clock
 function updateTime() {
@@ -839,6 +840,8 @@ function updateSummary() {
   document.getElementById(id)?.addEventListener('input', updateSummary);
 });
 updateSummary();
+
+
 
 function updateHiddenFields() {
   document.getElementById("mainCongress").value =

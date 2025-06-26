@@ -804,35 +804,52 @@ function updateSummary() {
   let hasAny = false;
   summaryList.innerHTML = "";
   const isEarly = new Date() <= new Date("2025-10-15");
+
   const main = document.querySelector('.card-option[data-name="mainCongress"].selected');
   const reunion = document.querySelector('.card-option[data-name="reunionOnly"].selected');
+  const workshop = document.querySelector('.card-option[data-name="workshop"].selected');
+
   if (main) {
     const price = isEarly ? 3500 : 4000;
     total += price;
     hasAny = true;
-    summaryList.innerHTML += `<li>Main Congress วันที่ 13–14 พ.ย. 2568 (${price} บาท)</li>`;
+    summaryList.innerHTML += `<li>Main congress วันที่ 13–14 พ.ย. 2568 (${price} บาท)</li>`;
   }
-  const workshop = document.querySelector('.card-option[data-name="workshop"].selected');
+
   if (workshop) {
     const val = workshop.getAttribute("data-value");
     const price = val === "3" ? (isEarly ? 599 : 699) : (isEarly ? 500 : 600);
     total += price;
     hasAny = true;
-    summaryList.innerHTML += `<li>${workshop.innerText.trim().split("\n")[0]} (${price} บาท)</li>`;
+
+    // ✅ ดึงชื่อเวิร์กช็อปจากบรรทัดที่ 1 + 2
+    const workshopLines = workshop.innerText.trim().split("\n");
+    const workshopTitle = workshopLines[0] + " " + workshopLines[1]; // เช่น "Workshop 2: Perioperative Hypotension"
+    summaryList.innerHTML += `<li>${workshopTitle} (${price} บาท)</li>`;
   }
+
   if (reunion) {
     total += 1000;
     hasAny = true;
-    summaryList.innerHTML += `<li>เข้าร่วมงานคืนสู่เหย้า (1000 บาท)</li>`;
+    summaryList.innerHTML += `<li>ร่วมงานคืนสู่เหย้า วันที่ 14 พ.ย. 2568 เวลา 18:00–21:00 น. (1,000 บาท)</li>`;
   }
+
   const shirt = document.getElementById("shirtSize").value;
-  if ((main || reunion) && shirt) summaryList.innerHTML += `<li>ขนาดเสื้อยืด: ${shirt}</li>`;
+  if ((main || reunion) && shirt)
+    summaryList.innerHTML += `<li>ขนาดเสื้อยืด: ${shirt}</li>`;
+
   const rc = document.getElementById("reunionConfirm").value;
-  if ((main || reunion) && rc) summaryList.innerHTML += `<li>งานคืนสู่เหย้า: ${rc}</li>`;
+  if ((main || reunion) && rc)
+    summaryList.innerHTML += `<li>ร่วมคืนสู่เหย้า: ${rc}</li>`;
+
   const year = document.getElementById("trainingYear").value;
-  if ((main || reunion) && year) summaryList.innerHTML += `<li>ปีที่ฝึกอบรม: ${year}</li>`;
+  if ((main || reunion) && year)
+    summaryList.innerHTML += `<li>ปีที่ฝึกอบรม: ${year}</li>`;
+
   const note = document.getElementById("note").value;
-  if ((main || reunion) && note) summaryList.innerHTML += `<li>หมายเหตุ: ${note}</li>`;
+  if ((main || reunion) && note)
+    summaryList.innerHTML += `<li>หมายเหตุเพิ่มเติม: ${note}</li>`;
+
   totalAmount.innerText = total;
   summarySection.style.display = hasAny ? "block" : "none";
 }

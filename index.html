@@ -679,9 +679,11 @@ button:hover {
     <span style="font-weight: bold;">(ไม่ใช่อีเมลยืนยันการลงทะเบียน)</span>
   </p>
 <p>
-  โดยท่านสามารถส่งหลักฐานการชำระเงินเพิ่มเติม และแก้ไขข้อมูลดังต่อไปนี้ได้ทาง
-  ▶ <a href="https://line.me/R/ti/p/@sirirajanesthesia" target="_blank">Line วิสัญญี ศิริราช</a>
-  </p>
+  โดยท่านสามารถส่งหลักฐานการชำระเงินเพิ่มเติมได้ทาง
+    ▶ <a href="https://script.google.com/macros/s/AKfycbwnbOro3gjufucc9EypOZvguVzgOL5k0AE6ChSKNBtNSRv0zNcJimyMTZV7bWWHWrFPSQ/exec" target="_blank">ส่งหลักฐานการโอนเงิน</a> </p>
+  
+  <p>ท่านสามารถตรวจสอบสถานะการลงทะเบียน และแก้ไขข้อมูลดังต่อไปนี้ได้ทาง
+      ▶ <a href="https://script.google.com/macros/s/AKfycbxRsydUYYb8n1ALghRWXE0xjufZY0fXPWp-KeB1a7t3bYl0k0f0ZN9ZmQmX5uknAJtM/exec" target="_blank">ตรวจสอบสถานะการลงทะเบียน และแก้ไขข้อมูล</a></p>
   <ul style="margin-top: 5px; margin-bottom: 15px;">
     <li>ขนาดเสื้อ (เฉพาะผู้ลงทะเบียน main congress)</li>
     <li>ยืนยันการเข้าร่วมงานคืนสู่เหย้า (เฉพาะผู้ลงทะเบียน main congress)</li>
@@ -689,6 +691,8 @@ button:hover {
     <li>หมายเหตุ</li>
     <li>ชื่อ เลขประจำตัวผู้เสียภาษี และที่อยู่สำหรับออกใบเสร็จ</li>
   </ul>
+
+  </p>
   <p>
     สามารถแก้ไขข้อมูลข้างต้นได้ถึงวันที่ <strong>15 ตุลาคม 2568</strong> ข้อมูลการลงทะเบียนอื่น ๆ ไม่สามารถแก้ไขได้
   </p>
@@ -941,6 +945,14 @@ const form = document.querySelector('form');
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
+  // ✅ ตรวจสอบว่ามีการเลือก Main Congress หรือ Reunion Only หรือไม่
+  const mainSelected = document.querySelector('.card-option[data-name="mainCongress"].selected');
+  const reunionSelected = document.querySelector('.card-option[data-name="reunionOnly"].selected');
+  if (!mainSelected && !reunionSelected) {
+    alert("กรุณาเลือกรายการลงทะเบียน (Main congress หรือ เข้าร่วมงานคืนสู่เหย้าเท่านั้น)");
+    return;
+  }
+
   const submitButtons = document.querySelectorAll('.submit-btn');
   submitButtons.forEach(btn => {
     btn.disabled = true;
@@ -976,6 +988,7 @@ form.addEventListener('submit', function (e) {
     });
   }
 });
+
 
 // ✅ ฟังก์ชันคัดลอกบัญชีธนาคาร (ย้ายออกมาอยู่นอก submit event)
 function copyAccount() {

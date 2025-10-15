@@ -519,7 +519,7 @@ button:hover {
         <div style="font-size: 0.9em; margin-top: 4px;">
           ภายในวันที่ 15 ต.ค. 2568: <strong>500 </strong> บาท<br>หลังวันที่ 15 ต.ค. 2568: <strong>600 </strong> บาท
         </div>
-       <div style="font-size: 2 em; color: rgb(185, 57, 57);">เต็ม</div>
+       <div style="font-size: 0.7 em; color: rgb(185, 57, 57);">เต็ม</div>
       </div>
       <div class="card-option selectable" onclick="selectCard(this, 'workshop')" data-name="workshop" data-value="3">
         <div><strong>Workshop 3:</strong></div>
@@ -820,7 +820,7 @@ function updateSummary() {
   let total = 0;
   let hasAny = false;
   summaryList.innerHTML = "";
-  const isEarly = new Date() <= new Date("2025-10-15");
+  const isEarly = new Date() <= new Date("2025-10-16");
 
   const main = document.querySelector('.card-option[data-name="mainCongress"].selected');
   const reunion = document.querySelector('.card-option[data-name="reunionOnly"].selected');
